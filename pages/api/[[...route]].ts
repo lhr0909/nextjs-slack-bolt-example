@@ -19,15 +19,16 @@ const app = new App({
 });
 
 app.event('message', async ({ event, say }) => {
-  console.log(event);
+  const text = (event as any).text;
+  say({
+    text: text || 'Hello world!',
+  });
 });
 
 // this is run just in case
-app.start();
 const router = receiver.start();
 
 router.get('/api', (req: NextApiRequest, res: NextApiResponse) => {
-  console.log('test');
   res.status(200).json({
     test: true,
   });

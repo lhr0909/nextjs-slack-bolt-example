@@ -274,7 +274,6 @@ export default class NextConnectReceiver implements Receiver {
   }
 
   private async requestHandler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
-    console.log('test');
     let isAcknowledged = false;
     setTimeout(() => {
       if (!isAcknowledged) {
