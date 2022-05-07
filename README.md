@@ -2,7 +2,7 @@
 
 This is an example of how to deploy a Slack Bolt app using Vercel. By leveraging The Vercel Serverless Platform, one can quickly build a Slack App and deploy for free.
 
-A blog post is coming.
+A blog post is [here](https://www.divby0.io/posts/slack-bot-vercel-nextjs).
 
 ## Getting Started
 
