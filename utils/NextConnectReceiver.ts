@@ -148,7 +148,7 @@ export default class NextConnectReceiver implements Receiver {
     signingSecret = "",
     logger = undefined,
     logLevel = LogLevel.INFO,
-    endpoints = { events: "/api/slack/events" },
+    endpoints = { events: "/api/slack/events", commands: "/api/slack/commands", actions: "/api/slack/actions" },
     processBeforeResponse = false,
     signatureVerification = true,
     clientId = undefined,
@@ -284,6 +284,12 @@ export default class NextConnectReceiver implements Receiver {
     }, 3001);
 
     let storedResponse;
+
+    // Handle the actions
+    if (req.body.payload) {
+      req.body = JSON.parse(req.body.payload)
+    }
+
     const event: ReceiverEvent = {
       body: req.body,
       ack: async (response): Promise<void> => {
